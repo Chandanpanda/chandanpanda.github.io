@@ -17,8 +17,8 @@
             <h3>Expenses</h3>
             <div id="expenses-list">
                 <div class="expense-item">
-                    <input type="text" placeholder="Expense description">
-                    <input type="number" placeholder="Amount">
+                    <input type="text" class="expense-desc" placeholder="Expense description">
+                    <input type="number" class="expense-amount" placeholder="Amount">
                     <button class="remove-expense">Remove</button>
                 </div>
             </div>
@@ -41,10 +41,12 @@
 
                 const expenseDesc = document.createElement('input');
                 expenseDesc.type = 'text';
+                expenseDesc.className = 'expense-desc';
                 expenseDesc.placeholder = 'Expense description';
 
                 const expenseAmount = document.createElement('input');
                 expenseAmount.type = 'number';
+                expenseAmount.className = 'expense-amount';
                 expenseAmount.placeholder = 'Amount';
 
                 const removeButton = document.createElement('button');
