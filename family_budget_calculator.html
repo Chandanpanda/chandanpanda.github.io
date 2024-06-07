@@ -13,69 +13,52 @@
             <label for="income">Total Income:</label>
             <input type="number" id="income" placeholder="Enter total income">
         </div>
-        <div>
+        <div id="expenses">
             <h3>Expenses</h3>
-            <div id="expenses-list">
-                <div class="expense-item">
-                    <input type="text" class="expense-desc" placeholder="Expense description">
-                    <input type="number" class="expense-amount" placeholder="Amount">
-                    <button class="remove-expense">Remove</button>
-                </div>
+            <div class="expense-item">
+                <label>Housing (30%):</label>
+                <input type="number" id="housing" placeholder="Enter housing expense">
             </div>
-            <button id="add-expense">Add Expense</button>
+            <div class="expense-item">
+                <label>Utilities (10%):</label>
+                <input type="number" id="utilities" placeholder="Enter utilities expense">
+            </div>
+            <div class="expense-item">
+                <label>Food (15%):</label>
+                <input type="number" id="food" placeholder="Enter food expense">
+            </div>
+            <div class="expense-item">
+                <label>Transportation (10%):</label>
+                <input type="number" id="transportation" placeholder="Enter transportation expense">
+            </div>
+            <div class="expense-item">
+                <label>Healthcare (5%):</label>
+                <input type="number" id="healthcare" placeholder="Enter healthcare expense">
+            </div>
+            <div class="expense-item">
+                <label>Insurance (5%):</label>
+                <input type="number" id="insurance" placeholder="Enter insurance expense">
+            </div>
+            <div class="expense-item">
+                <label>Debt Payments (10%):</label>
+                <input type="number" id="debt" placeholder="Enter debt payments">
+            </div>
+            <div class="expense-item">
+                <label>Entertainment (5%):</label>
+                <input type="number" id="entertainment" placeholder="Enter entertainment expense">
+            </div>
+            <div class="expense-item">
+                <label>Savings (5%):</label>
+                <input type="number" id="savings" placeholder="Enter savings amount">
+            </div>
+            <div class="expense-item">
+                <label>Miscellaneous (5%):</label>
+                <input type="number" id="miscellaneous" placeholder="Enter miscellaneous expense">
+            </div>
         </div>
         <button id="calculate-budget">Calculate Budget</button>
         <h3>Remaining Budget: <span id="remaining-budget">$0.00</span></h3>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const incomeInput = document.getElementById('income');
-            const expensesList = document.getElementById('expenses-list');
-            const addExpenseButton = document.getElementById('add-expense');
-            const calculateBudgetButton = document.getElementById('calculate-budget');
-            const remainingBudgetDisplay = document.getElementById('remaining-budget');
-
-            addExpenseButton.addEventListener('click', function () {
-                const expenseItem = document.createElement('div');
-                expenseItem.classList.add('expense-item');
-
-                const expenseDesc = document.createElement('input');
-                expenseDesc.type = 'text';
-                expenseDesc.className = 'expense-desc';
-                expenseDesc.placeholder = 'Expense description';
-
-                const expenseAmount = document.createElement('input');
-                expenseAmount.type = 'number';
-                expenseAmount.className = 'expense-amount';
-                expenseAmount.placeholder = 'Amount';
-
-                const removeButton = document.createElement('button');
-                removeButton.classList.add('remove-expense');
-                removeButton.textContent = 'Remove';
-
-                removeButton.addEventListener('click', function () {
-                    expensesList.removeChild(expenseItem);
-                });
-
-                expenseItem.appendChild(expenseDesc);
-                expenseItem.appendChild(expenseAmount);
-                expenseItem.appendChild(removeButton);
-
-                expensesList.appendChild(expenseItem);
-            });
-
-            calculateBudgetButton.addEventListener('click', function () {
-                const income = parseFloat(incomeInput.value) || 0;
-                let totalExpenses = 0;
-
-                document.querySelectorAll('.expense-item input[type="number"]').forEach(input => {
-                    totalExpenses += parseFloat(input.value) || 0;
-                });
-
-                const remainingBudget = income - totalExpenses;
-                remainingBudgetDisplay.textContent = `$${remainingBudget.toFixed(2)}`;
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
